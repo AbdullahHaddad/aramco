@@ -1,0 +1,81 @@
+
+	> create-react-app demo2
+
+How to add bootstrap to react app
+--------------------------------------
+
+	1. adding CDN link with index.html
+
+	2. add bootstrap as dependency
+		
+		> npm install --save bootstap
+		
+
+
+
+
+render content conditionally 
+---------------------------------------
+
+	-> component encapsulates data, view and logic together
+
+	class XYZ extends Component {
+
+		state = {
+			courses : []
+		}
+
+		//methods to handle events
+		//methods to perform business operations
+	
+		render() {
+			<div>
+				{
+				this.state.courses.length>0 ? <ul>
+				   <li> { this.state.courses[0] } <li>
+				   <li> { this.state.courses[1] } <li>
+				   <li> { this.state.courses[2] } <li>
+				</ul> : <p> No Courses yet!...</p> 
+				}
+			</div>
+		}
+
+	}
+
+
+
+
+	<Product title='xxxx' subject='xxxx' date='xxx' price='xxx' />
+
+	<Product />
+
+  	courses : [
+            	      {
+                	cid : 102,
+                	cname : 'React Native',
+                	duration : '9 Days',
+                	price : '2000'
+            	     },
+		     ......
+	]
+	
+	this.state.courses.map((c)=>{
+		return <Course cname='c.cname' duration='c.duration' price='c.price' />
+	})
+
+
+Event handling
+---------------------
+
+		handleClick = ()=> {
+
+		}
+
+
+		<button onClick={this.handleClick} />
+
+
+
+
+
+

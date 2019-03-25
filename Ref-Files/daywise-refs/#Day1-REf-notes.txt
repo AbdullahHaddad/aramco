@@ -1,0 +1,541 @@
+
+HTML
+	- "what" contents you want to place on your webpage
+	- to define the structure of webpage
+
+CSS
+	- "how" the content should appear on the webpage
+	- to define the 'style rules' for your webpage
+
+JavaScript / ES5 / javascript 1.5
+-------------------------------------------
+	-> to provide functionalities on webpage 
+	-> provides programming capabilities on webpages
+
+		-> dom manipulations
+		-> event handling
+		-> ajax calls
+		-> business logic 
+		-> form validations 
+
+
+		-> javascript was introduced in 1997
+		-> in 1997, JS was submitted to ECMA for standardization
+		-> ECMA publishes 'Specifications' which are implemented by diff. 			browsers
+		-> ES1, ES2, ES4, ES5, ....
+		-> every browser has a javascript engine
+
+			chrome	- V8
+			firefox	- spidermonky
+			
+		- ECMAScript
+
+		- it object based programming
+
+
+ES6 / ECMAScript 2015 / javascript 2.0
+------------------------------------------
+	- improvised version of javascript
+
+	- supports oops features 
+
+	-> classes & objects 
+	-> arrow functions
+	-> spread operators
+	-> rest parameters
+	-> promises / async / await
+	-> generators
+	-> "Module System" / import & export
+
+JQuery
+------------
+	-> it is js library
+	-> it simplifis js tasks 
+	-> light weight / cross-browser / open source
+	-> many libraries are written on top of jquery
+		-> jquery-ui
+		-> jquery-mobile
+		-> jquery form validation
+
+Bootstrap / Semantic UI
+-----------------------------
+	- create responsive web pages
+	- html+css+jquery
+
+
+ReactJS / React
+	- Web application development 
+
+React Native
+	- Mobile application development 
+
+
+
+
+	language 		libraries/apis			framework
+
+
+	C#			collection			.net
+				io
+				network
+
+	java			jdbc/collection			spring
+				servlet / jsp
+				awt / swing 
+
+	javascipt		jquery				angular
+				bootstrap			react (?)
+								vue
+								ember
+
+
+	|			|				|
+	provide			simplify			standardize	
+	programming 		tasks				process
+	capabilities 
+
+Node
+------------
+	-> it provides a runtime environment for javascript 
+
+NPM
+-------------
+	-> node package manager
+	-> it is a dependency management tool
+	-> using npm we can download node packages/ libraries / apis written in js
+		and published on npm repository
+
+
+-> Create a simple web project 
+-------------------------------------------
+
+	-> development server
+	-> jquery
+	-> bootstrap
+	-> some other packages 
+
+
+
+	1. open VS Code and open a folder
+
+	2. create package.json file
+
+		- used to list all the dependencies of our project
+		- used to configure some scripts 
+
+		> npm init
+
+	3. download / install a development server
+
+		> npm install --save http-server
+
+	4. start the server
+
+		> ./node_modules/.bin/http-server
+
+	5. configure the script to start the server inside package.json file
+
+ 		"scripts": {
+    
+			"test": "echo \"Error: no test specified\" && exit 1",
+    			"demo": "./node_modules/.bin/http-server -c1 ."
+  
+		},
+
+		> npm run demo
+
+	6. install node packages
+
+		> npm install --save jquery@3.2.x
+
+		> npm install --save bootstrap
+
+ES6 features
+-------------------
+
+	1. block scoped variables
+
+		var
+		  - variables declared with 'var' are hoisted / global scoped / 			function scoped
+		  - can be redeclared
+
+		let
+		  - variables declared with 'let' are not hoisted
+		  - block scoped 
+		  - cannot be redeclared 
+
+		const 
+		  - variables declared with 'const' are not hoisted
+		  - block scoped 
+		  - cannot be redeclared 
+		  - cannot be updated / reassined 
+
+
+	2. Arrow functions
+	----------------------
+
+		- in javascript, functions are 'first-class' objects
+		- functions, callback, closures, IIFE, function constructor
+		- detailed explanation on functions, array manipulation functions
+
+		function arithAdd(a, b){
+			return a+b;
+		}
+
+		let arithAdd = function(a, b){
+
+		}
+
+
+		$(document).ready(function(){
+
+		})
+
+
+		function someFun(){
+			return function(){
+			
+			}
+		}
+
+
+	==> using arrow functions
+	--------------------------
+		-> arrow functions are more abbreviated way of writing the 					functions
+		-> arrow functions do not create new scope
+
+		-> we dont have this, arguments, etc properties 
+
+		let arithAdd = (a, b) => {
+			return a+b;
+		}
+
+		let arithAdd = (a, b) => a+b;
+		
+		let sayHello = (name)=> console.log('hello ' + name);
+		
+
+		let sayHello = name => {
+			console.log('hello ' + name);
+		}
+
+		$(document).ready(()=> {
+
+		})
+
+
+
+
+	3. javascript objects
+	----------------------------
+
+		- in js, we can create objects 
+
+		1. using object literals
+
+			let person = {
+				fname : 'vishal',
+				lname : 'shah'
+			}
+
+		2. using function constructor 
+
+			function Person(){
+			
+
+			}
+
+
+	4. default arguments 
+	-----------------------
+
+		function arithAdd(a=10, b=20){
+		
+		}
+	
+		arithAdd(10,20);
+
+
+	5. Rest parameters
+	----------------------
+
+
+		function arithAdd(a, b, ...args){
+
+		}
+
+		arithAdd(1,20,10,2,1,21,43,34,34)
+
+	6.  Spread operator ...
+	------------------------
+
+		Array spread
+		------------------
+			let arr1 = [10,20,30,40,50];
+
+			let arr2 = [...arr1, 50, 60];
+
+		object spread
+		--------------------
+		let Person = {
+    			fname : 'vishal',
+    			lname : 'shah'
+		}
+
+		let Employee = {
+    			...Person,
+    			lname : 'sdlkfjdsk',
+    			companyName : 'Aramco'
+		}
+
+	7. Object De-Structuring
+	-------------------------------
+
+	let Person = {
+    		fname : 'vishal',
+    		lname : 'shah',
+    		age : 35, 
+    		cname : 'Aramco',
+    		location : 'Dammam',
+    		designation : 'Trainer'
+    //....
+	}
+
+function show({fname, lname}){
+    return 'PersonData : ' + fname + '  ' + lname;
+}
+
+show(Person)
+
+
+	8. Array manipulation functions
+	--------------------------------------------
+
+		a. .forEach(callback) method
+
+			-> used to iterate the elements of any array
+			-> it has a callback, which is executed for each element in 				the array, and every time the element is passed as 				parameter to the callback
+
+
+		let arr1 = [10,20,30,40,50];
+
+
+		arr1.forEach(function(number, index){
+			//code to process the element ...
+		})
+
+		arr1.forEach((number, index)=>{
+
+		})
+
+		b. .map(callback) function
+		---------------------------
+			-> used to iterate the elements of any array
+			-> it has a callback, which is executed for each element in 				the array, and every time the element is passed as 					parameter to the callback
+
+			-> retuns an array after processing each element
+
+		let namesArr = ['Abdulla','Vishal','Riyaz','Hussain']
+
+		let newArr = namesArr.map(function(name){
+    			return name.toUpperCase();
+		})
+
+
+	     c. filter(callback)
+		-------------------------
+
+
+let namesArr = ['Abdulla','Vishal','Riyaz','Hussain', 'Murtadha', 'Amal']
+
+
+
+	let newArr = namesArr.filter(function(name){
+
+		return name.length>=6
+
+	})
+
+	9. Module System
+	-------------------------
+
+
+ReactJS
+=======================================================================
+
+	=> What is React
+		- React is a javascript library, used to create javascript driven 			web applications
+		-> React helps to create 'Components'
+		-> component is responsible to render a 'View' / it controls a 			particular patch/part of the webpage
+
+
+
+	=> Component
+		-> it is a imp building block in react apps, which encapsulates 				"view", "data" and "logic"
+		-> component describes the 'view' using jsx
+
+		-> component in react is just a javascript function / class, which 			returns / renders jsx code
+
+
+			function Course(props){
+			  return (
+				<div class='course'>
+  					<h2>{props.cname}</h2>
+  					<hr />
+  					<p>Duration : {props.duration}</p>
+  					<p>Dates : 24 March to 28 March </p>
+  					<button> Join Course </button>
+				</div>
+				)
+			}
+
+
+			import {Component} from 'react';
+
+			class Course extends Component {
+
+				render(){
+				   return (
+				    <div class='course'>
+  					<h2>{this.props.cname}</h2>
+  					<hr />
+  					<p>Duration : {this.props.duration}</p>
+  					<p>Dates : 24 March to 28 March </p>
+  					<button> Join Course </button>
+				     </div>
+				  )
+				}
+			}
+
+
+
+
+		ReactDOM.render(<Course />, document.getElementById('root'));
+
+
+
+	=> JSX code
+	
+		-> javascript syntax extension used to describe the ui/view
+		-> jsx is a html like language
+		-> using jsx we can describe the view
+
+
+			<h1> helloworld </h1>
+
+			React.createElement('h1',null,'helloworld')
+	
+
+	=> How React works
+
+
+		=> react library
+
+			-> allows to create components 
+
+
+		=> react-dom library
+
+			- is responsible to render the components 
+
+			ReactDOM.render()
+
+		=> Babel 
+			-> it is javascript preprocessor
+			-> convert the jsx into javascript code 
+
+-------------------------------------------------------------------------
+
+==> create-react-app CLI tool
+--------------------------------------------------
+
+	> npm install -g create-react-app
+
+
+==> create a new react project
+-----------------------------------
+
+	>create-react-app firstapp
+
+===> Directory structure
+-----------------------------
+
+	> myreact1
+		|
+		|-->node_modules
+		|	|-> stores all libraries/nodepackages
+		|
+		|-->public
+		|	|-> index.html
+		|
+		|-->src
+		|    |-> index.js
+		|    |		-> entry point of react app	   
+		|    |-> App.js
+		|    |		-> it defines the root component of your app
+
+
+
+
+Stateless component / presentational component / pure component
+--------------------------
+
+	- function based component
+
+	import React from 'react';
+
+	function Counter(props){
+		return (
+			//jsx code
+			//props
+		)
+	}
+
+
+Stateful component / container
+----------------------------------------------
+
+	- class based component 
+	- we can maintain 'state'
+	- handle events by defining methods
+
+	import React, {Component} from 'react';
+
+	class Counter extends Component {
+
+		//write business logic in methods
+
+
+		render() {
+			return (
+			    //jsx code
+			    //this.props
+			)
+		}
+
+	}
+
+
+props
+-------------
+	-> its a javascript object, used to access all the attributes
+	-> we can pass values from outside the component (parent to child)
+
+state
+----------------
+	-> state is a special property, available only inside class based 		components
+	-> used to maintain the state
+
+
+	-> at each change in state/prop the component is re-rendered 
+	
+this.setState()
+---------------------
+
+	- this.setState() method is used to manipulate the existing state
+
+
+
+
+
+
